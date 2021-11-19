@@ -29,8 +29,50 @@ class DbController {
             'name TEXT NOT NULL,'
             'phone TEXT NOT NULL'
             ')');
+        await db.execute('CREATE TABLE authors ('
+            'id INTEGER PRIMARY KEY AUTOINCREMENT,'
+            'name TEXT NOT NULL,'
+            'image TEXT NOT NULL,'
+            'numberBook TEXT NOT NULL,'
+            'des TEXT NOT NULL,'
+            'selected INTEGER NOT NULL'
+            ')');
+        await db.execute('CREATE TABLE topics ('
+            'id INTEGER PRIMARY KEY AUTOINCREMENT,'
+            'name TEXT NOT NULL,'
+            'image TEXT NOT NULL,'
+            'selected INTEGER NOT NULL'
+            ')');
+        await db.execute('CREATE TABLE basicBook ('
+            'id INTEGER PRIMARY KEY AUTOINCREMENT,'
+            'name TEXT NOT NULL,'
+            'image TEXT NOT NULL,'
+            'nameTopic TEXT NOT NULL,'
+            'nameAuthor TEXT NOT NULL,'
+            'description TEXT NOT NULL,'
+            'pageNumber TEXT NOT NULL,'
+            'dateCreated TEXT NOT NULL,'
+            'language TEXT NOT NULL,'
+            'favourite INTEGER NOT NULL,'
+            'grate INTEGER NOT NULL'
+            ')');
+        // await db.execute('CREATE TABLE greatestBook ('
+        //     'id INTEGER PRIMARY KEY AUTOINCREMENT,'
+        //     'name TEXT NOT NULL,'
+        //     'image TEXT NOT NULL,'
+        //     'nameTopic TEXT NOT NULL,'
+        //     'nameAuthor TEXT NOT NULL,'
+        //     'description TEXT NOT NULL,'
+        //     'pageNumber TEXT NOT NULL,'
+        //     'dateCreated TEXT NOT NULL,'
+        //     'language TEXT NOT NULL,'
+        //     'favourite BLOB NOT NULL'
+        //     ')');
+
       },
-      onUpgrade: (Database db, int oldVersion, int newVersion) {},
+      onUpgrade: (Database db, int oldVersion, int newVersion) {
+
+      },
       onDowngrade: (db, oldVersion, newVersion) {},
     );
   }

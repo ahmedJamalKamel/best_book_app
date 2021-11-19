@@ -29,6 +29,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -43,6 +45,10 @@ dependencies:
   shared_preferences: ^2.0.8
   flutter_screenutil: ^5.0.0+2
   flutter_bloc: ^7.3.1
+  flutter_svg: ^0.23.0+1
+  hexcolor: ^2.0.5
+  image_picker: ^0.8.4+4
+
 
 dev_dependencies:
   flutter_test:
@@ -65,10 +71,20 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-
+  generate: true
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - image/
+    - icon/
+    - imageTopic/
+    - imageAuthor/
+    - imagGratBook/
+    - imagBaicBook/Action/
+    - imagBaicBook/Classics/
+    - imagBaicBook/Drama/
+    - imagBaicBook/Humor/
+    - imagBaicBook/Poetry/
+    - imagBaicBook/World/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
