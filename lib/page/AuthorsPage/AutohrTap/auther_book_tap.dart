@@ -1,11 +1,13 @@
-
-import 'package:best_book_app/Theme/colors.dart';
+import 'package:best_book_app/models/book_all.dart';
+import 'package:best_book_app/page/book_detail/book_detail_screen.dart';
+import 'package:best_book_app/widget/main_item/item_book.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class AuthorBookTap extends StatefulWidget {
-  const AuthorBookTap({Key? key}) : super(key: key);
+  AuthorBookTap({Key? key, required this.authorBook}) : super(key: key);
+  List<BookAll> authorBook;
 
   @override
   _AuthorBookTapState createState() => _AuthorBookTapState();
@@ -16,65 +18,19 @@ class _AuthorBookTapState extends State<AuthorBookTap> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView.builder(
-        padding: EdgeInsets.symmetric(horizontal: 24.w,vertical: 20.h),
+        padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 20.h),
         shrinkWrap: true,
-        itemCount: 6,
+        itemCount: widget.authorBook.length,
         itemBuilder: (context, index) {
-          return Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                      height: 98.h,
-                      width: 64.w,
-                      child: Image.asset("image/imageMoreBook.png")),
-                  Container(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Darius - The great is not okay",
-                          style: TextStyle(
-                              color: Text1,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 14),
-                        ),
-                        const SizedBox(
-                          height: 8,
-                        ),
-                        Text(
-                          "Adventure",
-                          style: TextStyle(color: Text2, fontSize: 14),
-                        ),
-                        const SizedBox(
-                          height: 8,
-                        ),
-                        Text(
-                          "Adib Khorram",
-                          style: TextStyle(color: Text1, fontSize: 14),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    child: Icon(Icons.more_vert),
-                  )
-                ],
+          return InkWell(onTap: () {
+            BookAll pass = widget.authorBook[index];
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => BookDetail(m: pass,),
               ),
-              SizedBox(
-                height: 24.h,
-              ),
-              Divider(
-                height: 1.h,
-                color: Bordercolor,
-              ),
-              SizedBox(
-                height: 24.h,
-              ),
-            ],
-          );
+            );
+          },child: ItemBook(bookAll:widget.authorBook[index],));
         },
       ),
     );

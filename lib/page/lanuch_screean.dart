@@ -1,10 +1,8 @@
 import 'package:best_book_app/get/author_getx_controller.dart';
 import 'package:best_book_app/get/book_all_getx_controller.dart';
-import 'package:best_book_app/get/book_greatest_getx_controller.dart';
 import 'package:best_book_app/get/topic_getx_controller.dart';
 import 'package:best_book_app/models/authors.dart';
 import 'package:best_book_app/models/book_all.dart';
-import 'package:best_book_app/models/book_greatest.dart';
 import 'package:best_book_app/models/topics.dart';
 import 'package:best_book_app/prefs/shared_pref_controller.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +20,7 @@ class _LaunchScreenState extends State<LaunchScreen> {
   @override
   void initState() {
 
-    if(!SharedPrefController().language){
+    if(!SharedPrefController().islogin){
       addDataTopic();
       addDataGBook();
       addDataAuthor();
@@ -32,12 +30,16 @@ class _LaunchScreenState extends State<LaunchScreen> {
       addDataBiHumorBook();
       addDataBiWorldLiteratureBook();
       addDataBiPoetryBook();
+      addDataBookforJohnGrisham();
+      addDataBookforMitchAlbom();
+      addDataBookforRachelCamposDuffy();
+      addDataBookforBrandon();
     }
 
     // TODO: implement initState
     super.initState();
     Future.delayed(const Duration(seconds: 3), () {
-      Navigator.pushReplacementNamed(context,!SharedPrefController().language?'/select_topics_screen':'/main_screen');
+      Navigator.pushReplacementNamed(context,!SharedPrefController().islogin?'/select_topics_screen':'/main_screen');
     });
   }
 
@@ -566,6 +568,169 @@ class _LaunchScreenState extends State<LaunchScreen> {
     c5.language="English";
     await BookAllGetxController.to.createContact(c5);
   }
+  ////
+  void addDataBookforBrandon() async {
+    BookAll c=BookAll();
+    c.name="Humans";
+    c.pageNumber="451";
+    c.dateCreated="October 6, 2020";
+    c.description="Brandon Stanton’s new book, Humans—his most moving and compelling book to date—shows us the world.\n\nBrandon Stanton created Humans of New York in 2010. What began as a photographic census of life in New York City, soon evolved into a storytelling phenomenon. A global audience of millions began following HONY daily. Over the next several years, Stanton broadened his lens to include people from across the world.\n\nTraveling to more than forty countries, he conducted interviews across continents, borders, and language barriers. Humans is the definitive catalogue of these travels. The faces and locations will vary from page to page, but the stories will feel deeply familiar. Told with candor and intimacy, Humans will resonate with readers across the globe—providing a portrait of our shared experience.";
+    c.nameTopic="Classics";
+    c.nameAuthor="Brandon Stanton";
+    c.image="imagBaicBook/Classics/Humans.png";
+    c.language="English";
+    await BookAllGetxController.to.createContact(c);
+    ////
+    BookAll c2=BookAll();
+    c2.name="Humans of New York";
+    c2.pageNumber="432";
+    c2.dateCreated="October 13, 2015";
+    c2.description="With over 500 vibrant, full-color photos, Humans of New York: Stories is an insightful and inspiring collection of portraits of the lives of New Yorkers.\n\nHumans of New York: Stories is the culmination of five years of innovative storytelling on the streets of New York City. During this time, photographer Brandon Stanton stopped, photographed, and interviewed more than ten thousand strangers, eventually sharing their stories on his blog, Humans of New York.\n\nIn Humans of New York: Stories, the interviews accompanying the photographs go deeper, exhibiting the intimate storytelling that the blog has become famous for today. Ranging from whimsical to heartbreaking, these stories have attracted a global following of more than 30 million people across several social media platforms.";
+    c2.nameTopic="Classics";
+    c2.nameAuthor="Brandon Stanton";
+    c2.image="imagBaicBook/Classics/HumansofNewYork.png";
+    c2.language="English";
+    await BookAllGetxController.to.createContact(c2);
+    ////
+    BookAll c3=BookAll();
+    c3.name="Little Humans";
+    c3.pageNumber="40";
+    c3.dateCreated="October 7, 2014";
+    c3.description="Street photographer and storyteller extraordinaire Brandon Stanton is the creator of the wildly popular blog \"Humans of New York.\" He is also the author of the #1 New York Times bestseller Humans of New York.\n\nTo create Little Humans, a 40-page photographic picture book for young children, he's combined an original narrative with some of his favorite children's photos from the blog, in addition to all-new exclusive portraits. The result is a hip, heartwarming ode to little humans everywhere.";
+    c3.nameTopic="Classics";
+    c3.nameAuthor="Brandon Stanton";
+    c3.image="imagBaicBook/Classics/LittleHumans.png";
+    c3.language="English";
+    await BookAllGetxController.to.createContact(c3);
+    ////
+    BookAll c4=BookAll();
+    c4.name="A Clockwork Orange";
+    c4.pageNumber="240";
+    c4.dateCreated="May 21, 2019";
+    c4.description="“A brilliant novel.… [A] savage satire on the distortions of the single and collective minds.”―New York Times\n\nIn Anthony Burgess’s influential nightmare vision of the future, where the criminals take over after dark, the story is told by the central character, Alex, a teen who talks in a fantastically inventive slang that evocatively renders his and his friends’ intense reaction against their society. Dazzling and transgressive, A Clockwork Orange is a frightening fable about good and evil and the meaning of human freedom. This edition includes the controversial last chapter not published in the first edition, and Burgess’s introduction, “A Clockwork Orange Resucked.”\n\n6 illustrations";
+    c4.nameTopic="Classics";
+    c4.nameAuthor="Brandon Stanton";
+    c4.image="imagBaicBook/Classics/AClockworkOrange.png";
+    c4.language="English";
+    await BookAllGetxController.to.createContact(c4);
+    ////
+  }
+  void addDataBookforRachelCamposDuffy() async {
+    BookAll c=BookAll();
+    c.name="All American Christmas";
+    c.pageNumber="272";
+    c.dateCreated="November 16, 2021";
+    c.description="From the wind-swept, snowy ranges of Wyoming to Florida beaches glowing with Christmas lights, All American Christmas traces holiday traditions across the United States. In this beautiful personal keepsake, Rachel Campos-Duffy and Sean Duffy present a dazzling collection of emotional stories, treasured family photographs, and homegrown Christmas recipes from some of Fox News’ most beloved personalities.\n\nDana Perino takes readers out west to the cattle ranch where she celebrated Christmas with real life “Marlboro Men”—her uncles and grandfather. Maria Bartiromo reflects on growing up in Brooklyn and the famously brilliant light displays in her neighborhood.\n\nBrit Hume looks back at the day he and a friend rushed onto the Washington Senators’ field—and how his parents later warned him that he was now on Santa Claus’ naughty list. For Lauren Green, her understanding of Christmas has evolved with her growing faith.\n\nBeautifully designed to reflect the color and spirit and sparkle of the season and featuring 16 pages of color photographs, All American Christmas is a gift of love from the Fox News family and is sure to be cherished for seasons to come.";
+    c.nameTopic="Classics";
+    c.nameAuthor="Rachel Campos-Duffy";
+    c.image="imagBaicBook/Classics/AllAmericanChristmas.png";
+    c.language="English";
+    await BookAllGetxController.to.createContact(c);
+    ////
+    BookAll c2=BookAll();
+    c2.name="Paloma Wants to be Lady Freedom";
+    c2.pageNumber="40";
+    c2.dateCreated="September 3, 2019";
+    c2.description="Today we spend so much time talking about diversity and what makes us different that we're forgetting to tell our children stories about what unites us as Americans. We have so many beautiful and important things in common—our history, our love of freedom, and our pursuit of the American Dream.\n\nRachel Campos-Duffy is a mother of nine and contributor on the Fox News network where she gives her honest take on politics, culture, and parenting.\n\nInspired by her immigrant mother's patriotism and the excitement of her own daughter's first visit to Washington, D.C., Rachel shares a story near and dear to her heart. It's a tale that takes the reader on a little girl's adventure inside the U.S. Capitol. While lost inside the magnificent building, Paloma becomes enchanted with the statue of Lady Freedom, learns about her immigrant father's dreams, and discovers her own courage and love for America.";
+    c2.nameTopic="Poetry";
+    c2.nameAuthor="Rachel Campos-Duffy";
+    c2.image="imagBaicBook/Poetry/PalomaWantstobeLadyFreedom.png";
+    c2.language="English";
+    await BookAllGetxController.to.createContact(c2);
+    ////
+    BookAll c3=BookAll();
+    c3.name="The Christmas Pig";
+    c3.pageNumber="288";
+    c3.dateCreated="October 12, 2021";
+    c3.description="Jack loves his childhood toy, Dur Pig. DP has always been there for him, through good and bad. Until one Christmas Eve something terrible happens -- DP is lost. But Christmas Eve is a night for miracles and lost causes, a night when all things can come to life... even toys. And Jack’s newest toy -- the Christmas Pig (DP’s replacement) -- has a daring plan: Together they’ll embark on a magical journey to seek something lost, and to save the best friend Jack has ever known...";
+    c3.nameTopic="Poetry";
+    c3.nameAuthor="Rachel Campos-Duffy";
+    c3.image="imagBaicBook/Poetry/TheChristmas.png";
+    c3.language="English";
+    await BookAllGetxController.to.createContact(c3);
+    ////
+    BookAll c4=BookAll();
+    c4.name="Stay Home, Stay Happy";
+    c4.pageNumber="256";
+    c4.dateCreated="August 25, 2009";
+    c4.description="National television personality and mother of five Rachel Campos-Duffy presents a new way of looking at stay at-home motherhood that will transform the way readers view their days, their family, and their home.";
+    c4.nameTopic="Classics";
+    c4.nameAuthor="Rachel Campos-Duffy";
+    c4.image="imagBaicBook/Classics/StayHome.png";
+    c4.language="English";
+    await BookAllGetxController.to.createContact(c4);
+    ////
+  }
+  void addDataBookforMitchAlbom() async {
+    BookAll c=BookAll();
+    c.name="The Stranger in the Lifeboat";
+    c.pageNumber="288";
+    c.dateCreated="November 2, 2021";
+    c.description="#1 New York Times Bestseller\n\nWhat would happen if we called on God for help and God actually appeared? In Mitch Albom’s profound new novel of hope and faith, a group of shipwrecked passengers pull a strange man from the sea. He claims to be \“the Lord.\” And he says he can only save them if they all believe in him.";
+    c.nameTopic="Classics";
+    c.nameAuthor="Mitch Albom";
+    c.image="imagBaicBook/Classics/TheStranger.png";
+    c.language="English";
+    await BookAllGetxController.to.createContact(c);
+    ////
+    BookAll c2=BookAll();
+    c2.name="The Time Keeper";
+    c2.pageNumber="240 ";
+    c2.dateCreated="October 1, 2013";
+    c2.description="The man who became Father Time.\n\nIn Mitch Albom's exceptional work of fiction, the inventor of the world's first clock is punished for trying to measure God's greatest gift. He is banished to a cave for centuries and forced to listen to the voices of all who come after him seeking more days, more years.\n\nEventually, with his soul nearly broken, Father Time is granted his freedom, along with a magical hourglass and a mission: a chance to redeem himself by teaching two earthly people the true meaning of time.\n\nHe returns to our world--now dominated by the hour-counting he so innocently began--and commences a journey with two unlikely partners: one a teenage girl who is about to give up on life, the other a wealthy old businessman who wants to live forever. To save himself, he must save them both. And stop the world to do so.\n\nTold in Albom's signature spare, evocative prose, this remarkably original tale will inspire readers everywhere to reconsider their own notions of time, how they spend it, and how precious it truly is.";
+    c2.nameTopic="Classics";
+    c2.nameAuthor="Mitch Albom";
+    c2.image="imagBaicBook/Classics/TheTimeKeeper.png";
+    c2.language="English";
+    await BookAllGetxController.to.createContact(c2);
+    ////
+    BookAll c3=BookAll();
+    c3.name="For One More Day";
+    c3.pageNumber="208";
+    c3.dateCreated="April 1, 2008";
+    c3.description="Mitch Albom mesmerized readers around the world with his number one New York Times bestsellers, The Five People You Meet in Heaven and Tuesdays with Morrie. Now he returns with a beautiful, haunting novel about the family we love and the chances we miss.\n\nFor One More Day is the story of a mother and a son, and a relationship that covers a lifetime and beyond. It explores the question: What would you do if you could spend one more day with a lost loved one?\n\nAs a child, Charley \"Chick\" Benetto was told by his father, \"You can be a mama's boy or a daddy's boy, but you can't be both.\" So he chooses his father, only to see the man disappear when Charley is on the verge of adolescence.\n\nDecades later, Charley is a broken man. His life has been crumbled by alcohol and regret. He loses his job. He leaves his family. He hits bottom after discovering his only daughter has shut him out of her wedding. And he decides to take his own life.\n\nHe makes a midnight ride to his small hometown, with plans to do himself in. But upon failing even to do that, he staggers back to his old house, only to make an astonishing discovery. His mother--who died eight years earlier--is still living there, and welcomes him home as if nothing ever happened.\n\nWhat follows is the one \"ordinary\" day so many of us yearn for, a chance to make good with a lost parent, to explain the family secrets, and to seek forgiveness. Somewhere between this life and the next, Charley learns the astonishing things he never knew about his mother and her sacrifices. And he tries, with her tender guidance, to put the crumbled pieces of his life back together.\n\nThrough Albom's inspiring characters and masterful storytelling, readers will newly appreciate those whom they love--and may have thought they'd lost--in their own lives. For One More Day is a book for anyone in a family, and will be cherished by Albom's millions of fans worldwide.";
+    c3.nameTopic="Classics";
+    c3.nameAuthor="Mitch Albom";
+    c3.image="imagBaicBook/Classics/ForOneMoreDay.png";
+    c3.language="English";
+    await BookAllGetxController.to.createContact(c3);
+    ////
+  }
+  void addDataBookforJohnGrisham() async {
+    BookAll c=BookAll();
+    c.name="The Brethren";
+    c.pageNumber="450";
+    c.dateCreated="March 9, 2010";
+    c.description="They call themselves the Brethren: three disgraced former judges doing time in a Florida federal prison. One was sent up for tax evasion. Another, for skimming bingo profits. The third for a career-ending drunken joyride. Meeting daily in the prison law library, taking exercise walks in their boxer shorts, these judges-turned-felons can reminisce about old court cases, dispense a little jailhouse justice, and contemplate where their lives went wrong. Or they can use their time in prison to get very rich—very fast.\n\nAnd so they sit, sprawled in the prison library, furiously writing letters, fine-tuning a wickedly brilliant extortion scam—while events outside their prison walls begin to erupt. A bizarre presidential election is holding the nation in its grips, and a powerful government figure is pulling some very hidden strings. For the Brethren, the timing couldn’t be better. Because they’ve just found the perfect victim.";
+    c.nameTopic="Action & Adventure";
+    c.nameAuthor="John Grisham";
+    c.image="imagBaicBook/Action/TheBrethren.png";
+    c.language="English";
+    await BookAllGetxController.to.createContact(c);
+    ////
+    BookAll c2=BookAll();
+    c2.name="The Summons";
+    c2.pageNumber="254";
+    c2.dateCreated="February 5, 2002";
+    c2.description="Ray Atlee is a professor of law at the University of Virginia. He's forty-three, newly single, and still enduring the aftershocks of a surprise divorce. He has a younger brother, Forrest, who redefines the notion of a family's black sheep.\n\nAnd he has a father, a very sick old man who lives alone in the ancestral home in Clanton, Mississippi. He is known to all as Judge Atlee, a beloved and powerful official who has towered over local law and politics for forty years. No longer on the bench, the Judge has withdrawn to the Atlee mansion and become a recluse.\n\nWith the end in sight, Judge Atlee issues a summons for both sons to return home to Clanton, to discuss the details of his estate. It is typed by the Judge himself, on his handsome old stationery, and gives the date and time for Ray and Forrest to appear in his study.\n\nRay reluctantly heads south, to his hometown, to the place where he grew up, which he prefers now to avoid. But the family meeting does not take place. The Judge dies too soon, and in doing so leaves behind a shocking secret known only to Ray.";
+    c2.nameTopic="Action & Adventure";
+    c2.nameAuthor="John Grisham";
+    c2.image="imagBaicBook/Action/TheSummons.png";
+    c2.language="English";
+    await BookAllGetxController.to.createContact(c2);
+    ////
+    BookAll c3=BookAll();
+    c3.name="Camino Winds";
+    c3.pageNumber="312";
+    c3.dateCreated="April 28, 2020";
+    c3.description="“In American icon John Grisham’s new novel, Camino Winds, an odd assortment of mystery and crime authors, some of them felons themselves, discover one of their colleagues has been murdered during the fury of a massive hurricane—the perfect crime scene. Since officials are preoccupied with the aftermath of the storm, the authors set out to solve the mystery themselves, in the type of wild but smart caper that Grisham’s readers love.” —Delia Owens, author of Where the Crawdads Sing ";
+    c3.nameTopic="Classics";
+    c3.nameAuthor="John Grisham";
+    c3.image="imagBaicBook/Classics/CaminoWinds.png";
+    c3.language="English";
+    await BookAllGetxController.to.createContact(c3);
+    ////
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -576,9 +741,7 @@ class _LaunchScreenState extends State<LaunchScreen> {
               colors: [HexColor("#654E09"), Colors.orange.shade700],
             ),
           ),
-          child: Container(
-            child: SvgPicture.asset("image/BookLover.svg"),
-          )),
+          child: SvgPicture.asset("image/BookLover.svg")),
     );
   }
 }

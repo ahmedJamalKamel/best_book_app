@@ -1,12 +1,11 @@
 import 'package:best_book_app/Theme/colors.dart';
 import 'package:best_book_app/get/author_getx_controller.dart';
 import 'package:best_book_app/get/book_all_getx_controller.dart';
-import 'package:best_book_app/get/book_greatest_getx_controller.dart';
 import 'package:best_book_app/get/topic_getx_controller.dart';
 import 'package:best_book_app/models/authors.dart';
 import 'package:best_book_app/models/book_all.dart';
 import 'package:best_book_app/models/topics.dart';
-import 'package:best_book_app/page/AllAuthor/all_author.dart';
+import 'package:best_book_app/page/AuthorsPage/author_screen.dart';
 import 'package:best_book_app/page/book_detail/book_detail_screen.dart';
 import 'package:best_book_app/widget/app_bar_custoum.dart';
 import 'package:best_book_app/widget/main_screens_widget/author_for_you.dart';
@@ -100,9 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
       children: [
         Container(
             padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 24.h),
-            child: InkWell(onTap: () {
-
-            }, child: const AppBarCustoum())),
+            child: const AppBarCustoum()),
         Trending_books(
           title: AppLocalizations.of(context)!.greatestbooks,
           subtitle: AppLocalizations.of(context)!.greatestbookssub,
@@ -129,7 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     InkWell(onTap: () {
                       Navigator.of(context).pushNamed("/book_all_screens");
                     },
-                      child: Text("More >",style: TextStyle(fontSize: 13.sp, fontWeight: FontWeight.bold,color: Colors.blue),),)
+                      child: Text(AppLocalizations.of(context)!.more+"  >",style: TextStyle(fontSize: 13.sp, fontWeight: FontWeight.bold,color: Colors.blue),),)
                   ],
                 ),
                 Container(
@@ -185,15 +182,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   InkWell(onTap: () {
                     Navigator.of(context).pushNamed("/all_author");
                   },
-                    child: Text("More >",style: TextStyle(fontSize: 13.sp, fontWeight: FontWeight.bold,color: Colors.blue),),)
+                    child: Text(AppLocalizations.of(context)!.more+"  >",style: TextStyle(fontSize: 13.sp, fontWeight: FontWeight.bold,color: Colors.blue),),)
                 ],
               ),
-              Container(
-                  margin: EdgeInsets.only(top: 8.h),
-                  child: Text(
-                    AppLocalizations.of(context)!.authorsforyousuptitle,
-                    style: TextStyle(fontSize: 14.sp, color: Text2),
-                  )),
+              // Container(
+              //     margin: EdgeInsets.only(top: 8.h),
+              //     child: Text(
+              //       AppLocalizations.of(context)!.authorsforyousuptitle,
+              //       style: TextStyle(fontSize: 14.sp, color: Text2),
+              //     )),
               SizedBox(
                 height: 208.h,
                 child: ListView.builder(
@@ -202,10 +199,21 @@ class _HomeScreenState extends State<HomeScreen> {
                   itemCount: selectedAutors.isNotEmpty ? selectedAutors
                       .length : 0,
                   itemBuilder: (context, index) {
-                    return AuthorForYou(
-                      image: selectedAutors[index].image,
-                      name: selectedAutors[index].name,
-                      topicname: selectedAutors[index].numberBook,);
+                    return InkWell(
+                      onTap: (){
+                       // Authors a=AuthorGetxController.to.authors.value[index];
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => AuthorScreen(authors: selectedAutors[index],),
+                          ),
+                        );
+                      },
+                      child: AuthorForYou(
+                        image: selectedAutors[index].image,
+                        name: selectedAutors[index].name,
+                        topicname: selectedAutors[index].numberBook,),
+                    );
                   },
                 ),
               )
@@ -242,7 +250,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         )
       ],
-    ):Center(child: CircularProgressIndicator()),
+    ):const Center(child: CircularProgressIndicator()),
 
     );
   }

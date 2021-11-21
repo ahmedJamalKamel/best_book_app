@@ -1,8 +1,8 @@
 import 'package:best_book_app/Theme/colors.dart';
+import 'package:best_book_app/get/book_all_getx_controller.dart';
 import 'package:best_book_app/models/authors.dart';
+import 'package:best_book_app/models/book_all.dart';
 import 'package:best_book_app/page/AuthorsPage/AutohrTap/auther_book_tap.dart';
-import 'package:best_book_app/page/book_detail/TabScreens/information_screen.dart';
-import 'package:best_book_app/page/book_detail/TabScreens/overview_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -17,9 +17,22 @@ class AuthorScreen extends StatefulWidget {
 
 class _AuthorScreenState extends State<AuthorScreen> with SingleTickerProviderStateMixin {
   late TabController _tabController;
-
+  List<BookAll> allBookList=[];
+  List<BookAll> athorBook=[];
+  void getData()
+  {
+    for(int i=0;i<allBookList.length;i++)
+    {
+      if(allBookList[i].nameAuthor==widget.authors.name)
+      {
+        athorBook.add(allBookList[i]);
+      }
+    }
+  }
   @override
   void initState() {
+    allBookList=BookAllGetxController.to.bookAll.value;
+    getData();
     // TODO: implement initState
     super.initState();
     _tabController = TabController(length: 2, vsync: this);
@@ -44,7 +57,7 @@ class _AuthorScreenState extends State<AuthorScreen> with SingleTickerProviderSt
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                icon: Icon(Icons.arrow_back_ios)),
+                icon: const Icon(Icons.arrow_back_ios)),
           ),
           Container(
               margin: EdgeInsets.only(top: 60.h),
@@ -55,7 +68,7 @@ class _AuthorScreenState extends State<AuthorScreen> with SingleTickerProviderSt
           SizedBox(height: 12.h,),
           Text(widget.authors.name,style: TextStyle(fontSize: 16.sp,color: Colors.black,fontWeight: FontWeight.bold),),
           SizedBox(height: 4.h,),
-          Text("Book number : "+widget.authors.numberBook,style: TextStyle(fontSize: 14.sp,color: Text2),),
+          Text("Book number : "+athorBook.length.toString(),style: TextStyle(fontSize: 14.sp,color: Text2),),
           SizedBox(height: 40.h,),
           TabBar(
               onTap: (int selectedTabIndex) {},
@@ -74,11 +87,11 @@ class _AuthorScreenState extends State<AuthorScreen> with SingleTickerProviderSt
                 ),
               ]),
           SizedBox(height: 16.h,),
-          Container(
+          SizedBox(
             height: 417.h,
             child: TabBarView(
                 controller: _tabController,
-                children: [AuthorBookTap(), AuthorAboutTap(authors: widget.authors,)]),
+                children: [AuthorBookTap(authorBook: athorBook,), AuthorAboutTap(authors: widget.authors,)]),
           )
         ],
       ),

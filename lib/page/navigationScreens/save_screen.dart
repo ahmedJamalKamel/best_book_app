@@ -25,6 +25,7 @@ class _SaveScreenState extends State<SaveScreen> {
         favoretBook.add(baiceBook[i]);
       }
     }
+    booknum=favoretBook.length;
   }
 
   @override
@@ -34,12 +35,12 @@ class _SaveScreenState extends State<SaveScreen> {
     // TODO: implement initState
     super.initState();
   }
-
+  int booknum=0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 24.h),
+        padding: EdgeInsets.symmetric(horizontal: 24.w),
         margin: EdgeInsets.only(top: 56.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -70,12 +71,12 @@ class _SaveScreenState extends State<SaveScreen> {
                     color: Colors.black),
               ),
               subtitle: Text(
-                favoretBook.length.toString() + " books",
+                booknum.toString() +""+AppLocalizations.of(context)!.books,
                 style: TextStyle(fontSize: 12.sp),
               ),
             ),
             Container(
-              height: 470.h,
+              height: 480.h,
               child: ListView.builder(
                 shrinkWrap: true,
                 itemCount: favoretBook.length,
@@ -92,12 +93,16 @@ class _SaveScreenState extends State<SaveScreen> {
                     },
                     child: Dismissible(
                       background: const Align(alignment: AlignmentDirectional.centerEnd,child: Icon(Icons.delete,color: Colors.red,)),
-                      key: const ValueKey(""),
+                      key:  UniqueKey(),
                       child: ItemBook(bookAll: favoretBook[index]),
                       onDismissed: (direction) {
                         favoretBook[index].favourite=0;
                         BookAllGetxController.to.updateContact(favoretBook[index]);
+                        setState(() {
+                          getdata();
+                        });
                       },
+
                     ),
                   );
                 },

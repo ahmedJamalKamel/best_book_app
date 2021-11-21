@@ -2,13 +2,9 @@ import 'package:best_book_app/Theme/colors.dart';
 import 'package:best_book_app/page/navigationScreens/home_screen.dart';
 import 'package:best_book_app/page/navigationScreens/save_screen.dart';
 import 'package:best_book_app/page/navigationScreens/trendings_screen.dart';
-import 'package:best_book_app/widget/app_bar_custoum.dart';
-import 'package:best_book_app/widget/main_screens_widget/trending_books.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'navigationScreens/account_screen.dart';
@@ -62,18 +58,18 @@ class _MainScreensState extends State<MainScreens> {
           //     label: AppLocalizations.of(context)!.inbox,
           //     activeIcon: const Icon(Icons.notifications)),
           BottomNavigationBarItem(
-              icon: const Icon(Icons.person),
+              icon: const Icon(Icons.settings),
               label: AppLocalizations.of(context)!.account,
-              activeIcon: const Icon(Icons.person)),
+              activeIcon: const Icon(Icons.settings)),
         ],
       ),
       body: _cuttentIndex == 0
-          ? HomeScreen()
+          ? const HomeScreen()
           : _cuttentIndex == 1
-              ? TrendingScreen()
+              ? const TrendingScreen()
               : _cuttentIndex == 2
-                  ? SaveScreen()
-                  :AccountScreen(),
+                  ? const SaveScreen()
+                  :const AccountScreen(),
     );
   }
 }

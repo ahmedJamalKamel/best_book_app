@@ -3,7 +3,7 @@ import 'package:best_book_app/get/topic_getx_controller.dart';
 import 'package:best_book_app/models/topics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class InterestTopic extends StatefulWidget {
   const InterestTopic({Key? key}) : super(key: key);
 
@@ -42,24 +42,12 @@ class _InterestTopicState extends State<InterestTopic> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(height: 32.h,),
-        // TextField(
-        //   decoration: InputDecoration(
-        //       hintText: "Search author",
-        //       enabledBorder: OutlineInputBorder(
-        //         borderSide: BorderSide(
-        //           width: .3.w,
-        //           color: Colors.grey,
-        //         ),
-        //         borderRadius: BorderRadius.circular(10),
-        //       )),
-        // ),
-        //   SizedBox(height: 32.h,),
-        // Text("Following",style: TextStyle(fontSize: 20.sp,fontWeight: FontWeight.bold,color: Text1),),
+        //AppLocalizations.of(context)!.customizeinterests
         SizedBox(
           height: 450.h,
           child: ListView(
             children: [
-              Text("Your Interests",style: TextStyle(fontSize: 20.sp,fontWeight: FontWeight.bold,color: Text1),),
+              Text(AppLocalizations.of(context)!.yourinterests,style: TextStyle(fontSize: 20.sp,fontWeight: FontWeight.bold,color: Text1),),
               ListView.builder(
                 physics: NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
@@ -121,7 +109,7 @@ class _InterestTopicState extends State<InterestTopic> {
                   );
                 },
               ),
-              Text("Suggestion",style: TextStyle(fontSize: 20.sp,fontWeight: FontWeight.bold,color: Text1),),
+              Text(AppLocalizations.of(context)!.suggestion,style: TextStyle(fontSize: 20.sp,fontWeight: FontWeight.bold,color: Text1),),
               SizedBox(height: 24.h,),
               ListView.builder(
                 physics: NeverScrollableScrollPhysics(),

@@ -24,32 +24,35 @@ class ItemBook extends StatelessWidget {
                 height: 98.h,
                 width: 64.w,
                 child: Image.asset(bookAll.image)),
-            Container(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    bookAll.name,
-                    style: TextStyle(
-                        color: Text1,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 14),
-                  ),
-                  const SizedBox(
-                    height: 8,
-                  ),
-                  Text(
-                    bookAll.nameTopic,
-                    style: TextStyle(color: Text2, fontSize: 14),
-                  ),
-                  const SizedBox(
-                    height: 8,
-                  ),
-                  Text(
-                    bookAll.nameAuthor,
-                    style: TextStyle(color: Text1, fontSize: 14),
-                  ),
-                ],
+            Expanded(
+              child: Container(
+                margin: EdgeInsets.only(left:13.w,right:13.w ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      bookAll.name,
+                      style: TextStyle(
+                          color: Text1,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 12.sp),
+                    ),
+                     SizedBox(
+                      height: 8.h,
+                    ),
+                    Text(
+                      bookAll.nameTopic,
+                      style: TextStyle(color: Text2, fontSize: 12.sp),
+                    ),
+                     SizedBox(
+                      height: 8.h,
+                    ),
+                    Text(
+                      bookAll.nameAuthor,
+                      style: TextStyle(color: Text1, fontSize: 12.sp),
+                    ),
+                  ],
+                ),
               ),
             ),
             Container(

@@ -1,6 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
-enum PrefKeys { lang ,name,email,image}
+enum PrefKeys { lang ,name,email,image,langug}
 
 class SharedPrefController {
   static final SharedPrefController _instance =
@@ -17,11 +17,11 @@ class SharedPrefController {
     _sharedPreferences = await SharedPreferences.getInstance();
   }
 
-  Future<void> setLanguage({required bool lang}) async {
+  Future<void> setisLogin({required bool lang}) async {
     await _sharedPreferences.setBool(PrefKeys.lang.toString(), lang);
   }
 
-  bool get language => _sharedPreferences.getBool(PrefKeys.lang.toString()) ?? false;
+  bool get islogin => _sharedPreferences.getBool(PrefKeys.lang.toString()) ?? false;
 
   Future<void> setUserName({required String name}) async {
     await _sharedPreferences.setString(PrefKeys.name.toString(), name);
@@ -36,7 +36,11 @@ class SharedPrefController {
     await _sharedPreferences.setString(PrefKeys.image.toString(), image);
     //await _sharedPreferences.setString(PrefKeys.email.toString(), email);
   }
+  Future<void> setLanguage() async {
+    await _sharedPreferences.setString(PrefKeys.langug.toString(), language=="en"?"ar":"en");
+  }
 
+  String get language => _sharedPreferences.getString(PrefKeys.langug.toString()) ?? 'en';
   String get name => _sharedPreferences.getString(PrefKeys.name.toString()) ?? "default name";
   String get email => _sharedPreferences.getString(PrefKeys.email.toString()) ?? "example@exaple.com";
   String get image => _sharedPreferences.getString(PrefKeys.image.toString()) ?? "";

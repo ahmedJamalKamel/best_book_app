@@ -52,7 +52,7 @@ class _CongratulationState extends State<Congratulation> {
                 width: 327.w,
                 child: ElevatedButton(
                   onPressed: () {
-                    SharedPrefController().setLanguage(lang: true);
+                    SharedPrefController().setisLogin(lang: true);
                     Navigator.of(context).pushNamed("/main_screen");
                   },
                   child: Text(

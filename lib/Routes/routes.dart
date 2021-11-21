@@ -1,16 +1,9 @@
 
-import 'package:best_book_app/page/Admin/CreateTaple/create_book_all.dart';
-import 'package:best_book_app/page/Admin/admin_main_screen.dart';
-import 'package:best_book_app/page/Admin/CreateTaple/create_author.dart';
-import 'package:best_book_app/page/Admin/CreateTaple/create_topic.dart';
+import 'package:best_book_app/page/About/adout_screen.dart';
 import 'package:best_book_app/page/AllAuthor/all_author.dart';
-import 'package:best_book_app/page/Aut/auth_screen.dart';
-import 'package:best_book_app/page/Aut/login_screen.dart';
-import 'package:best_book_app/page/AuthorsPage/author_screen.dart';
 import 'package:best_book_app/page/CustomizeInterestsPage/customize_interests_screen.dart';
-import 'package:best_book_app/page/ProfilePage/profile_screen.dart';
+import 'package:best_book_app/page/Search/search_book_screen.dart';
 import 'package:best_book_app/page/book_all_screens.dart';
-import 'package:best_book_app/page/book_detail/book_detail_screen.dart';
 import 'package:best_book_app/page/book_greatest_screens.dart';
 import 'package:best_book_app/page/chose_admin_user_screen.dart';
 import 'package:best_book_app/page/introPage/congratulation_screen.dart';
@@ -40,27 +33,24 @@ import 'package:flutter/material.dart';
    static const String loginScreen= '/login_screen';
    static const String authScreen= '/AuthScreen';
    static const String bookAllScreens= '/book_all_screens';
+   static const String aboutScreen= '/about_screen';
+   static const String searchBookScreen= '/search_book_screen';
   Map<String, WidgetBuilder> routes() {
     return {
-      launchScreen: (context) => LaunchScreen(),
-      mainScreen : (context) => MainScreens(),
+      launchScreen: (context) => const LaunchScreen(),
+      mainScreen : (context) => const MainScreens(),
     //  bookDetailScreen: (context) => BookDetail(),
-      selectTopicsScreen: (context) => SelectTopics(),
-      selectAuthorScreen: (context) => SelectAuthor(),
-      congratulationScreen: (context) => Congratulation(),
+      selectTopicsScreen: (context) => const SelectTopics(),
+      selectAuthorScreen: (context) => const SelectAuthor(),
+      congratulationScreen: (context) => const Congratulation(),
     //  authorScreen: (context) => AuthorScreen(),
-      profileScreen: (context) => ProfileScreen(),
-      customizeInterestsScreen: (context) => CustomInterestScreen(),
-      adminMainScreen: (context) => AdminMainScreen(),
-      choseAdminOrUser: (context) => ChoseAdminOrUser(),
-      createAuthor: (context) => CreateAuthor(),
-      createTopic: (context) => CreateTopic(),
-      createBookAll: (context) => CreateBookAll(),
-      allAuthor: (context) => AllAuthor(),
-      bookGreatestScreens: (context) => BookGreatestALL(),
-      loginScreen: (context) => LoginScreen(),
-      authScreen: (context) => AuthScreen(),
-      bookAllScreens: (context) => BookALLScreens(),
+      customizeInterestsScreen: (context) => const CustomInterestScreen(),
+      choseAdminOrUser: (context) => const ChoseAdminOrUser(),
+      allAuthor: (context) => const AllAuthor(),
+      bookGreatestScreens: (context) => const BookGreatestALL(),
+      bookAllScreens: (context) => const BookALLScreens(),
+      aboutScreen: (context) => const AboutScreen(),
+      searchBookScreen: (context) => const SearchBookScreen(),
 
     };
   }

@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:best_book_app/Theme/colors.dart';
 import 'package:best_book_app/get/author_getx_controller.dart';
@@ -6,7 +5,7 @@ import 'package:best_book_app/models/authors.dart';
 import 'package:best_book_app/page/AuthorsPage/author_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class AllAuthor extends StatefulWidget {
   const AllAuthor({Key? key}) : super(key: key);
 
@@ -19,21 +18,24 @@ class _AllAuthorState extends State<AllAuthor> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        margin: EdgeInsets.only(top: 54.h, left: 24.w),
+        padding: EdgeInsets.symmetric(horizontal: 24.w),
+        margin: EdgeInsets.only(top: 60.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: Icon(Icons.arrow_back_ios)),
-            SizedBox(
-              height: 10.h,
-            ),
-            Text(
-              "All Author",
-              style: TextStyle(fontSize: 32.sp, fontWeight: FontWeight.bold),
+            Row(
+              children: [
+                Container(
+                  margin: EdgeInsets.only(left: 24.w),
+                  child: IconButton(
+                      alignment: AlignmentDirectional.topStart,
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: const Icon(Icons.arrow_back_ios)),
+                ),
+                Container(margin: EdgeInsets.only(left: 24.w,bottom: 5.h),child: Text( AppLocalizations.of(context)!.allauthor,style: TextStyle(fontSize: 25.sp,fontWeight: FontWeight.bold),),)
+              ],
             ),
             SizedBox(
               height: 20.h,

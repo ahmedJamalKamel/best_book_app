@@ -1,10 +1,7 @@
-import 'package:best_book_app/Theme/colors.dart';
 import 'package:best_book_app/get/book_all_getx_controller.dart';
-import 'package:best_book_app/get/book_greatest_getx_controller.dart';
 import 'package:best_book_app/get/topic_getx_controller.dart';
 import 'package:best_book_app/models/book_all.dart';
-import 'package:best_book_app/widget/main_screens_widget/main_book_books.dart';
-import 'package:best_book_app/widget/main_screens_widget/trending_books.dart';
+import 'package:best_book_app/widget/main_item/item_book.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -62,9 +59,9 @@ class _BookALLScreensState extends State<BookALLScreens> {
                       onPressed: () {
                         Navigator.pop(context);
                       },
-                      icon: Icon(Icons.arrow_back_ios)),
+                      icon: const Icon(Icons.arrow_back_ios)),
                 ),
-                Container(margin: EdgeInsets.only(left: 24.w,bottom: 5.h),child: Text("All Book",style: TextStyle(fontSize: 25.sp,fontWeight: FontWeight.bold),),)
+                Container(margin: EdgeInsets.only(left: 24.w,bottom: 5.h),child: Text( AppLocalizations.of(context)!.allbook,style: TextStyle(fontSize: 25.sp,fontWeight: FontWeight.bold),),)
               ],
             ),
             SizedBox(height: 10.h,),
@@ -133,65 +130,7 @@ class _BookALLScreensState extends State<BookALLScreens> {
                       ),
                     );
                   },
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                              height: 98.h,
-                              width: 64.w,
-                              child: Image.asset(selected[index].image)),
-                          Expanded(
-                            child: Container(
-                              margin: EdgeInsets.only(left: 13.w),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    selected[index].name,
-                                    style: TextStyle(
-                                        color: Text1,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 14),
-                                  ),
-                                  const SizedBox(
-                                    height: 8,
-                                  ),
-                                  Text(
-                                    selected[index].nameTopic,
-                                    style: TextStyle(color: Text2, fontSize: 14),
-                                  ),
-                                  const SizedBox(
-                                    height: 8,
-                                  ),
-                                  Text(
-                                    selected[index].nameAuthor,
-                                    style: TextStyle(color: Text1, fontSize: 14),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          Container(
-                            alignment: AlignmentDirectional.center,
-                            child: Icon(Icons.arrow_forward_ios),
-                          )
-                        ],
-                      ),
-                      SizedBox(
-                        height: 24.h,
-                      ),
-                      Divider(
-                        height: 1.h,
-                        color: Bordercolor,
-                      ),
-                      SizedBox(
-                        height: 24.h,
-                      ),
-                    ],
-                  ),
+                  child: ItemBook(bookAll: selected[index],)
                 );
               },
             ),

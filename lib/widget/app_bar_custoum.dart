@@ -18,26 +18,13 @@ class AppBarCustoum extends StatelessWidget {
               //  margin: EdgeInsets.only(left: 24.w),
                 child: SvgPicture.asset("image/BookLover.svg")),
           ),
-          Container(
-            margin: EdgeInsets.only(right: 12.w),
-            height: 40.h,
-            width: 40.w,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(40),
-              color: Colors.white,
-              boxShadow: const [
-                BoxShadow(
-                  color: Colors.grey,
-                  offset: Offset(0.0, 1.0), //(x,y)
-                  blurRadius: 6.0,
-                ),
-              ],
-            ),
-            child: const Icon(Icons.search),
-          ),
-          Container(
-              padding: EdgeInsets.all(12.w),
-             // margin: EdgeInsets.only(right: 24.w),
+          InkWell(
+            onTap: ()
+            {
+              Navigator.of(context).pushNamed("/search_book_screen");
+            },
+            child: Container(
+              margin: EdgeInsets.only(right: 12.w),
               height: 40.h,
               width: 40.w,
               decoration: BoxDecoration(
@@ -51,7 +38,26 @@ class AppBarCustoum extends StatelessWidget {
                   ),
                 ],
               ),
-              child:  SvgPicture.asset("image/menu.svg")),
+              child: const Icon(Icons.search),
+            ),
+          ),
+          // Container(
+          //     padding: EdgeInsets.all(12.w),
+          //    // margin: EdgeInsets.only(right: 24.w),
+          //     height: 40.h,
+          //     width: 40.w,
+          //     decoration: BoxDecoration(
+          //       borderRadius: BorderRadius.circular(40),
+          //       color: Colors.white,
+          //       boxShadow: const [
+          //         BoxShadow(
+          //           color: Colors.grey,
+          //           offset: Offset(0.0, 1.0), //(x,y)
+          //           blurRadius: 6.0,
+          //         ),
+          //       ],
+          //     ),
+          //     child:  SvgPicture.asset("image/menu.svg")),
         ],
       ),
     );

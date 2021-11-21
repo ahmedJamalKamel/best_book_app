@@ -41,15 +41,15 @@ class _CustomInterestScreenState extends State<CustomInterestScreen>with SingleT
             ),
             IconButton(onPressed: () {Navigator.pop(context);}, icon: Icon(Icons.arrow_back_ios)),
             SizedBox(
-              height: 30.h,
+              height: 10.h,
             ),
-            Text("Customize interests",style: TextStyle(fontSize: 30.sp,fontWeight:FontWeight.bold ),),
+            Text(AppLocalizations.of(context)!.customizeinterests,style: TextStyle(fontSize: 30.sp,fontWeight:FontWeight.bold ),),
             SizedBox(
               height: 12.h,
             ),
-            Text("Select your favourite topics, follow authors and they will be displayed at your homepage",style: TextStyle(fontSize: 13.sp,color: Text2),),
+            Text(AppLocalizations.of(context)!.customizeinterestssub,style: TextStyle(fontSize: 12.sp,color: Text2),),
             SizedBox(
-              height: 50.h,
+              height: 40.h,
             ),
             TabBar(
                 onTap: (int selectedTabIndex) {},
@@ -68,7 +68,7 @@ class _CustomInterestScreenState extends State<CustomInterestScreen>with SingleT
                   ),
                 ]),
             Container(
-              height: 500.h,
+              height: 498.h,
               child: TabBarView(
                 controller: _tabController,
                 children:  [InterestTopic(),InterestAuthor()]),)

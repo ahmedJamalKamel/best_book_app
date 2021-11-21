@@ -1,8 +1,6 @@
 import 'package:best_book_app/Theme/colors.dart';
 import 'package:best_book_app/get/book_all_getx_controller.dart';
-import 'package:best_book_app/get/book_greatest_getx_controller.dart';
 import 'package:best_book_app/models/book_all.dart';
-import 'package:best_book_app/models/book_greatest.dart';
 import 'package:best_book_app/page/book_detail/book_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -28,7 +26,7 @@ class _MainBooksState extends State<MainBooks> {
     return ListView(
       padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 24.h),
       shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -44,18 +42,18 @@ class _MainBooksState extends State<MainBooks> {
 
               },
               child: Text(
-                "More >",
+                AppLocalizations.of(context)!.more+"  >",
                 style: TextStyle(fontSize: 13.sp, fontWeight: FontWeight.bold,color: Colors.blue),
               ),
-            ):Text(""),
+            ):const Text(""),
           ],
         ),
-        Container(
-            margin: EdgeInsets.only(top: 8.h),
-            child: Text(
-              widget.subtitle,
-              style: TextStyle(fontSize: 14.sp),
-            )),
+        // Container(
+        //     margin: EdgeInsets.only(top: 8.h),
+        //     child: Text(
+        //       widget.subtitle,
+        //       style: TextStyle(fontSize: 14.sp),
+        //     )),
         SizedBox(
           height: 40.h,
         ),
@@ -81,13 +79,13 @@ class _MainBooksState extends State<MainBooks> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
+                      SizedBox(
                           height: 98.h,
                           width: 64.w,
                           child: Image.asset(BookAllGetxController.to.bookAll.value[index].image)),
                       Expanded(
                         child: Container(
-                          margin: EdgeInsets.only(left: 13.w),
+                          margin: EdgeInsets.only(left: 13.w,right: 13.w),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -118,7 +116,7 @@ class _MainBooksState extends State<MainBooks> {
                       ),
                       Container(
                         alignment: AlignmentDirectional.center,
-                        child: Icon(Icons.arrow_forward_ios),
+                        child: const Icon(Icons.arrow_forward_ios),
                       )
                     ],
                   ),

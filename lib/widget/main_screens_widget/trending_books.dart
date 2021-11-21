@@ -1,14 +1,12 @@
 import 'package:best_book_app/Theme/colors.dart';
-import 'package:best_book_app/get/book_greatest_getx_controller.dart';
 import 'package:best_book_app/models/book_all.dart';
-import 'package:best_book_app/models/book_greatest.dart';
 import 'package:best_book_app/page/book_detail/book_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 class Trending_books extends StatefulWidget {
    Trending_books({
-    required this.title,required this.subtitle,required this.cont,this.showMor=false,required this.grateBook
+    required this.title,required this.subtitle,required this.cont,this.showMor=false,required this.grateBook,this.pading=24
   });
  late String title;
  late String subtitle;
@@ -16,7 +14,7 @@ class Trending_books extends StatefulWidget {
  late int cont;
  late bool showMor;
  late  List<BookAll>grateBook=[];
-
+  int pading;
   @override
   State<Trending_books> createState() => _Trending_booksState();
 }
@@ -46,7 +44,7 @@ class _Trending_booksState extends State<Trending_books> {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 24.h),
+      padding: EdgeInsets.symmetric(horizontal: widget.pading.w, vertical: 24.h),
       shrinkWrap: true,
       physics: NeverScrollableScrollPhysics(),
       children: [
@@ -64,7 +62,7 @@ class _Trending_booksState extends State<Trending_books> {
 
               },
               child: Text(
-                "More >",
+                AppLocalizations.of(context)!.more+"  >",
                 style: TextStyle(fontSize: 13.sp, fontWeight: FontWeight.bold,color: Colors.blue),
               ),
             ):Text(""),
@@ -107,7 +105,7 @@ class _Trending_booksState extends State<Trending_books> {
                           child: Image.asset(widget.grateBook[index].image)),
                       Expanded(
                         child: Container(
-                          margin: EdgeInsets.only(left: 13.w),
+                          margin: EdgeInsets.only(left:13.w,right:13.w ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [

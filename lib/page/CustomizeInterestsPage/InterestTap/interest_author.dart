@@ -1,11 +1,9 @@
 import 'package:best_book_app/Theme/colors.dart';
 import 'package:best_book_app/get/author_getx_controller.dart';
-import 'package:best_book_app/get/topic_getx_controller.dart';
 import 'package:best_book_app/models/authors.dart';
-import 'package:best_book_app/models/topics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class InterestAuthor extends StatefulWidget {
   const InterestAuthor({Key? key}) : super(key: key);
 
@@ -50,26 +48,14 @@ class _InterestAuthorState extends State<InterestAuthor> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(height: 32.h,),
-        // TextField(
-        //   decoration: InputDecoration(
-        //       hintText: "Search author",
-        //       enabledBorder: OutlineInputBorder(
-        //         borderSide: BorderSide(
-        //           width: .3.w,
-        //           color: Colors.grey,
-        //         ),
-        //         borderRadius: BorderRadius.circular(10),
-        //       )),
-        // ),
-     //   SizedBox(height: 32.h,),
-       // Text("Following",style: TextStyle(fontSize: 20.sp,fontWeight: FontWeight.bold,color: Text1),),
+
         SizedBox(
           height: 450.h,
           child: ListView(
             children: [
-              Text("Following",style: TextStyle(fontSize: 20.sp,fontWeight: FontWeight.bold,color: Text1),),
+              Text(AppLocalizations.of(context)!.following,style: TextStyle(fontSize: 20.sp,fontWeight: FontWeight.bold,color: Text1),),
               ListView.builder(
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 itemCount: followingAuthor.length,
                 itemBuilder: (context, index) {
@@ -82,7 +68,7 @@ class _InterestAuthorState extends State<InterestAuthor> {
                               width: 64.w,
                               child: Image.asset(followingAuthor[index].image)),
                           Container(margin: EdgeInsets.only(left: 24.w),child: Text(followingAuthor[index].name,style: TextStyle(color:Text1,fontSize: 14.sp),)),
-                          Spacer(),
+                          const Spacer(),
                           InkWell(
                             onTap: (){
                               setState(() {
@@ -105,7 +91,7 @@ class _InterestAuthorState extends State<InterestAuthor> {
                                   ),
                                 ],
                               ),
-                              child: followingAuthor[index].selected==0?Icon(Icons.add,color: Colors.black,):Icon(Icons.check,color: Colors.black,),
+                              child: followingAuthor[index].selected==0?const Icon(Icons.add,color: Colors.black,):const Icon(Icons.check,color: Colors.black,),
                             ),
                           ),
                         ],
@@ -117,10 +103,10 @@ class _InterestAuthorState extends State<InterestAuthor> {
                   );
                 },
               ),
-              Text("Suggestion",style: TextStyle(fontSize: 20.sp,fontWeight: FontWeight.bold,color: Text1),),
+              Text(AppLocalizations.of(context)!.suggestion,style: TextStyle(fontSize: 20.sp,fontWeight: FontWeight.bold,color: Text1),),
               SizedBox(height: 24.h,),
               ListView.builder(
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 itemCount: suggestionAuthor.length,
                 itemBuilder: (context, index) {
@@ -133,7 +119,7 @@ class _InterestAuthorState extends State<InterestAuthor> {
                               width: 64.w,
                               child: Image.asset(suggestionAuthor[index].image)),
                           Container(margin: EdgeInsets.only(left: 24.w),child: Text(suggestionAuthor[index].name,style: TextStyle(color:Text1,fontSize: 14.sp),)),
-                          Spacer(),
+                          const Spacer(),
                           InkWell(
                             onTap: (){
                               setState(() {
@@ -156,7 +142,7 @@ class _InterestAuthorState extends State<InterestAuthor> {
                                   ),
                                 ],
                               ),
-                              child: suggestionAuthor[index].selected==0?Icon(Icons.add,color: Colors.black,):Icon(Icons.check,color: Colors.black,),
+                              child: suggestionAuthor[index].selected==0?const Icon(Icons.add,color: Colors.black,):const Icon(Icons.check,color: Colors.black,),
                             ),
                           ),
                         ],

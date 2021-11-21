@@ -1,5 +1,4 @@
 import 'package:best_book_app/get/book_all_getx_controller.dart';
-import 'package:best_book_app/get/book_greatest_getx_controller.dart';
 import 'package:best_book_app/models/book_all.dart';
 import 'package:best_book_app/widget/main_screens_widget/trending_books.dart';
 import 'package:flutter/material.dart';
@@ -41,7 +40,8 @@ class _BookGreatestALLState extends State<BookGreatestALL> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        margin: EdgeInsets.only(top: 54.h, left: 24.w),
+        padding: EdgeInsets.symmetric(horizontal: 24.w),
+        margin: EdgeInsets.only(top: 54.h),
         child: ListView(
           children: [
             IconButton(
@@ -54,10 +54,11 @@ class _BookGreatestALLState extends State<BookGreatestALL> {
             //   height: 10.h,
             // ),
             Trending_books(
-              grateBook: basicGrateBook,
+              grateBook: grateBook,
                 title: AppLocalizations.of(context)!.greatestbooks,
                 subtitle: AppLocalizations.of(context)!.greatestbookssub,
-                cont: BookAllGetxController.to.bookAll.value.length,
+                cont: grateBook.length,
+                pading: 0,
                 //showMor: true,
                ),
           ],

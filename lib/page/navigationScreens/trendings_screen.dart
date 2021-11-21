@@ -1,6 +1,5 @@
 import 'package:best_book_app/Theme/colors.dart';
 import 'package:best_book_app/get/book_all_getx_controller.dart';
-import 'package:best_book_app/get/book_greatest_getx_controller.dart';
 import 'package:best_book_app/models/book_all.dart';
 import 'package:best_book_app/page/book_detail/book_detail_screen.dart';
 import 'package:best_book_app/widget/main_item/item_book.dart';
@@ -43,7 +42,7 @@ class _TrendingScreenState extends State<TrendingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 24.h),
+        padding: EdgeInsets.symmetric(horizontal: 24.w),
         margin: EdgeInsets.only(top: 56.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,14 +58,14 @@ class _TrendingScreenState extends State<TrendingScreen> {
               height: 12.h,
             ),
             Text(
-              AppLocalizations.of(context)!.trendingssub,
+              AppLocalizations.of(context)!.trendingbookssuptitle,
               style: TextStyle(fontSize: 14.sp, color: Text2),
             ),
             SizedBox(
               height: 29.h,
             ),
             Container(
-              height: 539.h,
+              height: 550.h,
               child: ListView.builder(
                 shrinkWrap: true,
                 itemCount: grateBook.length,
