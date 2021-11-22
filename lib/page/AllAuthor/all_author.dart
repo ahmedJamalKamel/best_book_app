@@ -40,75 +40,77 @@ class _AllAuthorState extends State<AllAuthor> {
             SizedBox(
               height: 20.h,
             ),
-            ListView.builder(
-              shrinkWrap: true,
-              itemCount: AuthorGetxController.to.authors.value.length != 0
-                  ? AuthorGetxController.to.authors.value.length
-                  : 0,
-              itemBuilder: (context, index) {
-                return InkWell(
-                  onTap: () {
-                    Authors a=AuthorGetxController.to.authors.value[index];
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => AuthorScreen(authors: a,),
-                      ),
-                    );
-                  },
-                  child: Column(
-                    children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          // Image.file(File(AuthorGetxController
-                          //     .to.authors.value[index].image))
-                          CircleAvatar(
-                            radius: 35.w,
-                            backgroundImage: AssetImage(AuthorGetxController
-                                .to.authors.value[index].image),
-                          ),
-                          Expanded(
-                            child: ListTile(
-                              title: Container(
-                              //    margin: EdgeInsets.only(left: 24.w),
-                                  child: Text(
-                                    AuthorGetxController
-                                        .to.authors.value[index].name,
-                                    style: TextStyle(
-                                        color: Text1, fontSize: 14.sp),
-                                    textAlign: TextAlign.start,
-                                  )),
-                              subtitle: Container(
-                                margin: EdgeInsets.only(right: 12.w,top: 5.h),
-                                height: 40.h,
-                                child:  Text(
-                                  "book Number: "+AuthorGetxController
-                                      .to.authors.value[index].numberBook,
-                                  //textAlign: TextAlign.center,
+            Expanded(
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: AuthorGetxController.to.authors.value.length != 0
+                    ? AuthorGetxController.to.authors.value.length
+                    : 0,
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    onTap: () {
+                      Authors a=AuthorGetxController.to.authors.value[index];
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => AuthorScreen(authors: a,),
+                        ),
+                      );
+                    },
+                    child: Column(
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            // Image.file(File(AuthorGetxController
+                            //     .to.authors.value[index].image))
+                            CircleAvatar(
+                              radius: 35.w,
+                              backgroundImage: AssetImage(AuthorGetxController
+                                  .to.authors.value[index].image),
+                            ),
+                            Expanded(
+                              child: ListTile(
+                                title: Container(
+                                //    margin: EdgeInsets.only(left: 24.w),
+                                    child: Text(
+                                      AuthorGetxController
+                                          .to.authors.value[index].name,
+                                      style: TextStyle(
+                                          color: Text1, fontSize: 14.sp),
+                                      textAlign: TextAlign.start,
+                                    )),
+                                subtitle: Container(
+                                  margin: EdgeInsets.only(right: 12.w,top: 5.h),
+                                  height: 40.h,
+                                  child:  Text(
+                                    "book Number: "+AuthorGetxController
+                                        .to.authors.value[index].numberBook,
+                                    //textAlign: TextAlign.center,
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                          IconButton(
-                              onPressed: () {},
-                              icon: Icon(Icons.arrow_forward_ios))
-                        ],
-                      ),
-                      SizedBox(
-                        height: 24.h,
-                      ),
-                      Divider(
-                        height: 1,
-                        color: Bordercolor,
-                      ),
-                      SizedBox(
-                        height: 24.h,
-                      ),
-                    ],
-                  ),
-                );
-              },
+                            IconButton(
+                                onPressed: () {},
+                                icon: Icon(Icons.arrow_forward_ios))
+                          ],
+                        ),
+                        SizedBox(
+                          height: 24.h,
+                        ),
+                        Divider(
+                          height: 1,
+                          color: Bordercolor,
+                        ),
+                        SizedBox(
+                          height: 24.h,
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
             )
           ],
         ),

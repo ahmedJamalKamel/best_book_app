@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:url_launcher/url_launcher.dart';
 class AboutScreen extends StatefulWidget {
   const AboutScreen({Key? key}) : super(key: key);
@@ -69,7 +70,7 @@ class _AboutScreenState extends State<AboutScreen> {
                       title: InkWell(
                         onTap: () => _launchEmail(),
                         child: Text(
-                          'Name :',
+                          AppLocalizations.of(context)!.name+' :',
                           style: TextStyle(
                             fontWeight: FontWeight.normal,
                             fontSize: 22.sp,
@@ -77,7 +78,7 @@ class _AboutScreenState extends State<AboutScreen> {
                           ),
                         ),
                       ),
-                      subtitle: const Text("Ahmed Jamal Abu Swireh"),
+                      subtitle:  Text(AppLocalizations.of(context)!.myName),
                     ),
                   ),
                   GestureDetector(
@@ -94,7 +95,7 @@ class _AboutScreenState extends State<AboutScreen> {
                         title: InkWell(
                           onTap: () => _launchEmail(),
                           child: Text(
-                            'Email :',
+                            AppLocalizations.of(context)!.email+' :',
                             style: TextStyle(
                               fontWeight: FontWeight.normal,
                               fontSize: 22.sp,
@@ -124,7 +125,7 @@ class _AboutScreenState extends State<AboutScreen> {
                       child: ListTile(
                         leading: const Icon(Icons.call),
                         title: Text(
-                          'Number :',
+                          AppLocalizations.of(context)!.phone+' :',
                           style: TextStyle(
                             fontFamily: ' fontFamily',
                             fontWeight: FontWeight.normal,
@@ -149,7 +150,7 @@ class _AboutScreenState extends State<AboutScreen> {
                     child: ListTile(
                       leading: const Icon(Icons.note),
                       title: Text(
-                        'Project :',
+                        AppLocalizations.of(context)!.project+' :',
                         style: TextStyle(
                           fontFamily: ' fontFamily',
                           fontWeight: FontWeight.normal,

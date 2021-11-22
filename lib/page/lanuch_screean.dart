@@ -20,7 +20,7 @@ class _LaunchScreenState extends State<LaunchScreen> {
   @override
   void initState() {
 
-    if(!SharedPrefController().islogin){
+    if(!SharedPrefController().isCreate){
       addDataTopic();
       addDataGBook();
       addDataAuthor();
@@ -34,6 +34,7 @@ class _LaunchScreenState extends State<LaunchScreen> {
       addDataBookforMitchAlbom();
       addDataBookforRachelCamposDuffy();
       addDataBookforBrandon();
+      SharedPrefController().setCreatDataBase(lang: true);
     }
 
     // TODO: implement initState

@@ -24,7 +24,7 @@ class _SelectAuthorState extends State<SelectAuthor> {
         width:327.w ,
         child: ElevatedButton(
           onPressed: () {
-            Navigator.of(context).pushNamed("/congratulation_screen");
+            Navigator.of(context).pushReplacementNamed("/congratulation_screen");
           },
           child: Text("Done",style: TextStyle(color:Text1),),
           style: ElevatedButton.styleFrom(

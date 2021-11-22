@@ -2,8 +2,8 @@
     package="com.bookbest.ahmedjamal.best_book_app">
     <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>
    <application
-        android:label="best_book_app"
-        android:icon="@mipmap/ic_launcher">
+        android:label="Book Lover"
+        android:icon="@drawable/ic_booklover">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

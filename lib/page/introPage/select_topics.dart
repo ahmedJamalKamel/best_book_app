@@ -38,7 +38,7 @@ class _SelectTopicsState extends State<SelectTopics> {
         width:327.w ,
         child: ElevatedButton(
           onPressed: () {
-            Navigator.of(context).pushNamed("/select_author_screen");
+            Navigator.of(context).pushReplacementNamed("/select_author_screen");
           },
           child: Text("Next",style: TextStyle(color:Text1),),
           style: ElevatedButton.styleFrom(

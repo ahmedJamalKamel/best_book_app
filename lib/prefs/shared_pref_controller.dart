@@ -1,6 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
-enum PrefKeys { lang ,name,email,image,langug}
+enum PrefKeys { lang ,name,email,image,langug,creatData}
 
 class SharedPrefController {
   static final SharedPrefController _instance =
@@ -20,8 +20,12 @@ class SharedPrefController {
   Future<void> setisLogin({required bool lang}) async {
     await _sharedPreferences.setBool(PrefKeys.lang.toString(), lang);
   }
+  Future<void> setCreatDataBase({required bool lang}) async {
+    await _sharedPreferences.setBool(PrefKeys.creatData.toString(), lang);
+  }
 
   bool get islogin => _sharedPreferences.getBool(PrefKeys.lang.toString()) ?? false;
+  bool get isCreate => _sharedPreferences.getBool(PrefKeys.creatData.toString()) ?? false;
 
   Future<void> setUserName({required String name}) async {
     await _sharedPreferences.setString(PrefKeys.name.toString(), name);

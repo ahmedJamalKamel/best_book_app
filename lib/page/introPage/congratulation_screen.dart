@@ -53,7 +53,7 @@ class _CongratulationState extends State<Congratulation> {
                 child: ElevatedButton(
                   onPressed: () {
                     SharedPrefController().setisLogin(lang: true);
-                    Navigator.of(context).pushNamed("/main_screen");
+                    Navigator.of(context).pushReplacementNamed("/main_screen");
                   },
                   child: Text(
                     "Start reading",
